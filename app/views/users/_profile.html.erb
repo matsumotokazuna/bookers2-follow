@@ -13,12 +13,12 @@
 
 		<tr>
 			<th>follows</th>
-			<th><%= user.follower_ids.count%></th>
+			<th><%= link_to "#{user.follower_ids.count}", user_registration_follows_path(user.id) %></th>
 		</tr>
 
 		<tr>
 			<th>folowers</th>
-			<th><%= user.followings.count %></th>
+			<th><%= link_to "#{user.followings.count}", user_registration_followers_path(user.id) %></th>
 		</tr>
 </table>
 
