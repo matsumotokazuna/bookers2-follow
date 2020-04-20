@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 	else
 		redirect_to user_path(current_user.id)
 	end
-end
+	end
 
   def update
   	@user = User.find(params[:id])
@@ -28,6 +28,18 @@ end
   	else
   		render "edit"
   	end
+  end
+
+  def follows
+	@user = User.find(params[:id])
+	@users = @user.followers
+	render "follows"
+  end
+
+  def followers
+	@user = User.find(params[:id])
+	@users = @user.followings
+	render "followers"
   end
 
   private
