@@ -28,6 +28,7 @@
 					<td>フォロー数：<%= user.follower_ids.count %></td>
 					<td>フォロワー数：<%= user.followings.count %></td>
 					<td>
+					<% if user.id != current_user.id%>
 						<% if user.following?(current_user) %>
 						   	<%# すでにフォローしている = ログインユーザーが含まれている = 「フォローを外す」 %>
 							<li>
@@ -39,6 +40,7 @@
 								<%= link_to user_relationships_path(user), method: :post do %>フォローする<% end %>
 							</li>
 						<% end %>
+					<% end %>
 					</td>
 					<td><%= link_to "Show", user, class: "user_#{user.id}" %></td>
 				</tr>
